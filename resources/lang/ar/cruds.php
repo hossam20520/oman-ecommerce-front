@@ -75,7 +75,7 @@ return [
         'fields'         => [
             'id'                => 'رقم المعرف',
             'id_helper'         => ' ',
-            'category'          => 'اسم التصنيف',
+            'category'          => 'اسم التصنيف بالانجليزي',
             'category_helper'   => ' ',
             'created_at'        => 'تمت الاضافة',
             'created_at_helper' => ' ',
@@ -85,6 +85,8 @@ return [
             'deleted_at_helper' => ' ',
             'image'             => 'الصورة',
             'image_helper'      => ' ',
+            'category_name_ar'        => 'اسم التصنيف بالعربي',
+            'category_name_ar_helper' => ' ',
         ],
     ],
     'inventory' => [
@@ -93,7 +95,7 @@ return [
         'fields'         => [
             'id'                          => 'رقم المعرف',
             'id_helper'                   => ' ',
-            'name'                        => 'الاسم',
+            'name'                        => 'اسم المنتج بالانجليزي',
             'name_helper'                 => ' ',
             'sku'                         => 'وحدة حفظ المخزون',
             'sku_helper'                  => ' ',
@@ -155,7 +157,7 @@ return [
             'youtube_link_helper'         => ' ',
             'brand'                       => 'ماركة',
             'brand_helper'                => ' ',
-            'name_ar'                     => 'الاسم باللغة العربية',
+            'name_ar'                     => 'اسم المنتج بالعربي',
             'name_ar_helper'              => ' ',
             'full_desc_ar'                => 'شرح تفصيلي بالعربي',
             'full_desc_ar_helper'         => ' ',
