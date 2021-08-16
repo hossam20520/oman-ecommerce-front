@@ -68,21 +68,14 @@
 </div></center>
 
 <script>
-
-
 $("#connect").click(function(event){
       event.preventDefault();
-
       let username = $("#username").val();
       let password = $("#password").val();
       let _token   = $('meta[name="csrf-token"]').attr('content');
-
       connect(username , password , _token , function(response){
-
          console.log(response)
-
          if(response.status){
-
   Swal.fire({
   position: 'top-end',
   icon: 'success',
@@ -91,33 +84,24 @@ $("#connect").click(function(event){
   timer: 2000
 })
          }else{
-
   Swal.fire({
   icon: 'error',
   title: 'Oops...',
   text: response.error,
-
 })
-
          }
       } , function(ex){
           console.log(ex)
       });
-
-
       let timerInterval
 Swal.fire({
   title: 'Connecting To Back-end',
-
   cancelButtonText: 'Cancel',
   showCancelButton: true,
   timer: 2000,
   timerProgressBar: true,
   didOpen: () => {
     Swal.showLoading()
-
-
-
     // const b = Swal.getHtmlContainer().querySelector('b')
     // timerInterval = setInterval(() => {
     //   b.textContent = Swal.getTimerLeft()
@@ -131,23 +115,9 @@ Swal.fire({
 //   if (result.dismiss === Swal.DismissReason.timer) {
 //     console.log('I was closed by the timer')
 //   }
-
 // Swal.DismissReason.timer
 })
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
 
 
@@ -161,7 +131,6 @@ Swal.fire({
 
 
 <script>
-
 function connect(username , password , _token , success , error ){
     $.ajax({
         url: "{{ route('connections.connect') }}",
@@ -177,15 +146,10 @@ function connect(username , password , _token , success , error ){
             success(response)
           }
         }, error: function (jqXHR, exception) { 
-
              error(jqXHR);
          }
        });
 }
-
-
-
 </script>
 
 @endsection
-

@@ -29,32 +29,40 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('categories/destroy', 'CategoryController@massDestroy')->name('categories.massDestroy');
     Route::post('categories/media', 'CategoryController@storeMedia')->name('categories.storeMedia');
     Route::post('categories/ckmedia', 'CategoryController@storeCKEditorImages')->name('categories.storeCKEditorImages');
+    Route::post('categories/parse-csv-import', 'CategoryController@parseCsvImport')->name('categories.parseCsvImport');
+    Route::post('categories/process-csv-import', 'CategoryController@processCsvImport')->name('categories.processCsvImport');
     Route::resource('categories', 'CategoryController');
-
-    // Brand
-    Route::delete('brands/destroy', 'BrandController@massDestroy')->name('brands.massDestroy');
-    Route::resource('brands', 'BrandController');
 
     // Inventory
     Route::delete('inventories/destroy', 'InventoryController@massDestroy')->name('inventories.massDestroy');
     Route::post('inventories/media', 'InventoryController@storeMedia')->name('inventories.storeMedia');
     Route::post('inventories/ckmedia', 'InventoryController@storeCKEditorImages')->name('inventories.storeCKEditorImages');
+    Route::post('inventories/parse-csv-import', 'InventoryController@parseCsvImport')->name('inventories.parseCsvImport');
+    Route::post('inventories/process-csv-import', 'InventoryController@processCsvImport')->name('inventories.processCsvImport');
     Route::resource('inventories', 'InventoryController');
 
     // Groups
     Route::delete('groups/destroy', 'GroupsController@massDestroy')->name('groups.massDestroy');
+    Route::post('groups/parse-csv-import', 'GroupsController@parseCsvImport')->name('groups.parseCsvImport');
+    Route::post('groups/process-csv-import', 'GroupsController@processCsvImport')->name('groups.processCsvImport');
     Route::resource('groups', 'GroupsController');
 
     // Connection
     Route::delete('connections/destroy', 'ConnectionController@massDestroy')->name('connections.massDestroy');
+    Route::post('connections/parse-csv-import', 'ConnectionController@parseCsvImport')->name('connections.parseCsvImport');
+    Route::post('connections/process-csv-import', 'ConnectionController@processCsvImport')->name('connections.processCsvImport');
     Route::resource('connections', 'ConnectionController');
 
     // Filter
     Route::delete('filters/destroy', 'FilterController@massDestroy')->name('filters.massDestroy');
+    Route::post('filters/parse-csv-import', 'FilterController@parseCsvImport')->name('filters.parseCsvImport');
+    Route::post('filters/process-csv-import', 'FilterController@processCsvImport')->name('filters.processCsvImport');
     Route::resource('filters', 'FilterController');
 
     // Orders
     Route::delete('orders/destroy', 'OrdersController@massDestroy')->name('orders.massDestroy');
+    Route::post('orders/parse-csv-import', 'OrdersController@parseCsvImport')->name('orders.parseCsvImport');
+    Route::post('orders/process-csv-import', 'OrdersController@processCsvImport')->name('orders.processCsvImport');
     Route::resource('orders', 'OrdersController');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
