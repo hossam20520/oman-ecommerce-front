@@ -51,15 +51,15 @@ class InventoryController extends Controller
 
          $id =  $inventory->id;
      
-         $product = new Products();
-         $product->setObjet($request->all());
-         $res = $product->save($id);
+        //  $product = new Products();
+        //  $product->setObjet($request->all());
+        //  $res = $product->save($id);
  
          
-         if($product->getResponse() == 403){
+        //  if($product->getResponse() == 403){
  
-             return redirect()->route('admin.connections.sow' , 1);
-         }
+        //      return redirect()->route('admin.connections.sow' , 1);
+        //  }
 
 
 
