@@ -21,6 +21,10 @@ class StoreInventoryRequest extends FormRequest
                 'string',
                 'required',
             ],
+            'name_ar' => [
+                'string',
+                'required',
+            ],
             'sku' => [
                 'string',
                 'nullable',
@@ -34,11 +38,21 @@ class StoreInventoryRequest extends FormRequest
                 'min:-2147483648',
                 'max:2147483647',
             ],
+            'full_desc_ar' => [
+                'required',
+            ],
+            'short_desc_ar' => [
+                'required',
+            ],
             'image' => [
                 'required',
             ],
             'gallery.*' => [
                 'required',
+            ],
+            'brand' => [
+                'string',
+                'nullable',
             ],
             'product_unit' => [
                 'required',
@@ -94,10 +108,6 @@ class StoreInventoryRequest extends FormRequest
                 'nullable',
             ],
             'youtube_link' => [
-                'string',
-                'nullable',
-            ],
-            'brand' => [
                 'string',
                 'nullable',
             ],

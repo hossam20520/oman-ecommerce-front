@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'senfineco',
+    'site_title' => 'senfineco_2',
 ];

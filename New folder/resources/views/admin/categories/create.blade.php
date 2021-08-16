@@ -18,6 +18,14 @@
                 <span class="help-block">{{ trans('cruds.category.fields.category_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="category_name_ar">{{ trans('cruds.category.fields.category_name_ar') }}</label>
+                <input class="form-control {{ $errors->has('category_name_ar') ? 'is-invalid' : '' }}" type="text" name="category_name_ar" id="category_name_ar" value="{{ old('category_name_ar', '') }}" required>
+                @if($errors->has('category_name_ar'))
+                    <span class="text-danger">{{ $errors->first('category_name_ar') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.category.fields.category_name_ar_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label class="required" for="image">{{ trans('cruds.category.fields.image') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('image') ? 'is-invalid' : '' }}" id="image-dropzone">
                 </div>

@@ -33,6 +33,9 @@
                             {{ trans('cruds.inventory.fields.name') }}
                         </th>
                         <th>
+                            {{ trans('cruds.inventory.fields.name_ar') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.inventory.fields.sku') }}
                         </th>
                         <th>
@@ -45,7 +48,13 @@
                             {{ trans('cruds.inventory.fields.desc') }}
                         </th>
                         <th>
+                            {{ trans('cruds.inventory.fields.full_desc_ar') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.inventory.fields.short_desc') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.inventory.fields.short_desc_ar') }}
                         </th>
                         <th>
                             {{ trans('cruds.inventory.fields.image') }}
@@ -111,6 +120,9 @@
                             {{ trans('cruds.inventory.fields.howtouse') }}
                         </th>
                         <th>
+                            {{ trans('cruds.inventory.fields.how_to_use_ar') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.inventory.fields.youtube_link') }}
                         </th>
                         <th>
@@ -119,6 +131,15 @@
                     </tr>
                     <tr>
                         <td>
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                         </td>
                         <td>
                             <input class="search" type="text" placeholder="{{ trans('global.search') }}">
@@ -226,6 +247,9 @@
                             <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                         </td>
                         <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        </td>
+                        <td>
                         </td>
                     </tr>
                 </thead>
@@ -242,6 +266,9 @@
                                 {{ $inventory->name ?? '' }}
                             </td>
                             <td>
+                                {{ $inventory->name_ar ?? '' }}
+                            </td>
+                            <td>
                                 {{ $inventory->sku ?? '' }}
                             </td>
                             <td>
@@ -254,7 +281,13 @@
                                 {{ $inventory->desc ?? '' }}
                             </td>
                             <td>
+                                {{ $inventory->full_desc_ar ?? '' }}
+                            </td>
+                            <td>
                                 {{ $inventory->short_desc ?? '' }}
+                            </td>
+                            <td>
+                                {{ $inventory->short_desc_ar ?? '' }}
                             </td>
                             <td>
                                 @if($inventory->image)
@@ -326,6 +359,9 @@
                             </td>
                             <td>
                                 {{ $inventory->howtouse ?? '' }}
+                            </td>
+                            <td>
+                                {{ $inventory->how_to_use_ar ?? '' }}
                             </td>
                             <td>
                                 {{ $inventory->youtube_link ?? '' }}

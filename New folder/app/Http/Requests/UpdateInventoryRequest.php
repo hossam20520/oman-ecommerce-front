@@ -21,6 +21,10 @@ class UpdateInventoryRequest extends FormRequest
                 'string',
                 'required',
             ],
+            'name_ar' => [
+                'string',
+                'required',
+            ],
             'sku' => [
                 'string',
                 'nullable',
@@ -33,6 +37,16 @@ class UpdateInventoryRequest extends FormRequest
                 'integer',
                 'min:-2147483648',
                 'max:2147483647',
+            ],
+            'full_desc_ar' => [
+                'required',
+            ],
+            'short_desc_ar' => [
+                'required',
+            ],
+            'brand' => [
+                'string',
+                'nullable',
             ],
             'product_unit' => [
                 'required',
@@ -88,10 +102,6 @@ class UpdateInventoryRequest extends FormRequest
                 'nullable',
             ],
             'youtube_link' => [
-                'string',
-                'nullable',
-            ],
-            'brand' => [
                 'string',
                 'nullable',
             ],

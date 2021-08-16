@@ -33,6 +33,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.category.fields.category_name_ar') }}
+                        </th>
+                        <td>
+                            {{ $category->category_name_ar }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.category.fields.image') }}
                         </th>
                         <td>

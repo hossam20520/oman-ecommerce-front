@@ -33,6 +33,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.inventory.fields.name_ar') }}
+                        </th>
+                        <td>
+                            {{ $inventory->name_ar }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.inventory.fields.sku') }}
                         </th>
                         <td>
@@ -65,10 +73,26 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.inventory.fields.full_desc_ar') }}
+                        </th>
+                        <td>
+                            {{ $inventory->full_desc_ar }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.inventory.fields.short_desc') }}
                         </th>
                         <td>
                             {{ $inventory->short_desc }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.inventory.fields.short_desc_ar') }}
+                        </th>
+                        <td>
+                            {{ $inventory->short_desc_ar }}
                         </td>
                     </tr>
                     <tr>
@@ -245,6 +269,14 @@
                         </th>
                         <td>
                             {{ $inventory->howtouse }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.inventory.fields.how_to_use_ar') }}
+                        </th>
+                        <td>
+                            {{ $inventory->how_to_use_ar }}
                         </td>
                     </tr>
                     <tr>

@@ -21,6 +21,10 @@ class UpdateCategoryRequest extends FormRequest
                 'string',
                 'nullable',
             ],
+            'category_name_ar' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

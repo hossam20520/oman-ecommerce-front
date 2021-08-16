@@ -33,6 +33,9 @@
                             {{ trans('cruds.category.fields.category') }}
                         </th>
                         <th>
+                            {{ trans('cruds.category.fields.category_name_ar') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.category.fields.image') }}
                         </th>
                         <th>
@@ -41,6 +44,9 @@
                     </tr>
                     <tr>
                         <td>
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                         </td>
                         <td>
                             <input class="search" type="text" placeholder="{{ trans('global.search') }}">
@@ -65,6 +71,9 @@
                             </td>
                             <td>
                                 {{ $category->category ?? '' }}
+                            </td>
+                            <td>
+                                {{ $category->category_name_ar ?? '' }}
                             </td>
                             <td>
                                 @if($category->image)

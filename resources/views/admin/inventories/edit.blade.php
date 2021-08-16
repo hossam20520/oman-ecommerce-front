@@ -19,6 +19,14 @@
                 <span class="help-block">{{ trans('cruds.inventory.fields.name_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="name_ar">{{ trans('cruds.inventory.fields.name_ar') }}</label>
+                <input class="form-control {{ $errors->has('name_ar') ? 'is-invalid' : '' }}" type="text" name="name_ar" id="name_ar" value="{{ old('name_ar', $inventory->name_ar) }}" required>
+                @if($errors->has('name_ar'))
+                    <span class="text-danger">{{ $errors->first('name_ar') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.inventory.fields.name_ar_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label for="sku">{{ trans('cruds.inventory.fields.sku') }}</label>
                 <input class="form-control {{ $errors->has('sku') ? 'is-invalid' : '' }}" type="text" name="sku" id="sku" value="{{ old('sku', $inventory->sku) }}">
                 @if($errors->has('sku'))
@@ -51,12 +59,28 @@
                 <span class="help-block">{{ trans('cruds.inventory.fields.desc_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="full_desc_ar">{{ trans('cruds.inventory.fields.full_desc_ar') }}</label>
+                <textarea class="form-control {{ $errors->has('full_desc_ar') ? 'is-invalid' : '' }}" name="full_desc_ar" id="full_desc_ar" required>{{ old('full_desc_ar', $inventory->full_desc_ar) }}</textarea>
+                @if($errors->has('full_desc_ar'))
+                    <span class="text-danger">{{ $errors->first('full_desc_ar') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.inventory.fields.full_desc_ar_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label for="short_desc">{{ trans('cruds.inventory.fields.short_desc') }}</label>
                 <textarea class="form-control {{ $errors->has('short_desc') ? 'is-invalid' : '' }}" name="short_desc" id="short_desc">{{ old('short_desc', $inventory->short_desc) }}</textarea>
                 @if($errors->has('short_desc'))
                     <span class="text-danger">{{ $errors->first('short_desc') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.inventory.fields.short_desc_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="short_desc_ar">{{ trans('cruds.inventory.fields.short_desc_ar') }}</label>
+                <textarea class="form-control {{ $errors->has('short_desc_ar') ? 'is-invalid' : '' }}" name="short_desc_ar" id="short_desc_ar" required>{{ old('short_desc_ar', $inventory->short_desc_ar) }}</textarea>
+                @if($errors->has('short_desc_ar'))
+                    <span class="text-danger">{{ $errors->first('short_desc_ar') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.inventory.fields.short_desc_ar_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="image">{{ trans('cruds.inventory.fields.image') }}</label>
@@ -246,6 +270,14 @@
                     <span class="text-danger">{{ $errors->first('howtouse') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.inventory.fields.howtouse_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="how_to_use_ar">{{ trans('cruds.inventory.fields.how_to_use_ar') }}</label>
+                <textarea class="form-control {{ $errors->has('how_to_use_ar') ? 'is-invalid' : '' }}" name="how_to_use_ar" id="how_to_use_ar">{{ old('how_to_use_ar', $inventory->how_to_use_ar) }}</textarea>
+                @if($errors->has('how_to_use_ar'))
+                    <span class="text-danger">{{ $errors->first('how_to_use_ar') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.inventory.fields.how_to_use_ar_helper') }}</span>
             </div>
             <div class="form-group">
                 <label for="youtube_link">{{ trans('cruds.inventory.fields.youtube_link') }}</label>
