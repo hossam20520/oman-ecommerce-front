@@ -7,6 +7,7 @@ class Mongodb {
     private $client;
     private $response;
     private $token;
+    private $storage = "http://localhost:8000/storage/";
     public function __construct() {
       // $this->obj = $obj;
       // dd(Session::get('token'));
@@ -20,12 +21,15 @@ class Mongodb {
  
 
 
-
+  public function getStoragePath(){
+    return $this->storage;
+  }
 
 
     public function sendPostData($obj , $url){
     $res = $this->client->post(env('FRONT_API_URL').$url, [
-                            'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json'],
+                             'http_errors' => false,
+                            'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json' ,  'Authorization'=> $this->token],
                             'body'    => json_encode( $obj)
                             ]);
 
@@ -38,17 +42,30 @@ class Mongodb {
 
 
 
-public function sendPutData($ID , $url){
+public function sendPutData($obj , $url){
 
-  $res = $this->client->put(env('FRONT_API_URL').$url.$ID, [
-    'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json'],
-    'body'    => json_encode( $obj)
+  $res = $this->client->put(env('FRONT_API_URL').$url, [
+    'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json' , 'Authorization'=> $this->token],
+    'body'    => json_encode($obj)
     ]);
 
     $res->getHeader('content-type');
     $response = json_decode($res->getBody(), true);
    $this->response  = $response;
 
+}
+
+
+public function delete($url){
+
+  $res = $this->client->delete(env('FRONT_API_URL').$url, [
+    'headers' => ['Content-Type' => 'application/json', 'Accept' => 'application/json' , 'Authorization'=> $this->token]
+    // 'body'    => json_encode($obj)
+    ]);
+
+    $res->getHeader('content-type');
+    $response = json_decode($res->getBody(), true);
+   $this->response  = $response;
 
 }
 
@@ -66,6 +83,30 @@ public function sendPutData($ID , $url){
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function store($obj , $url ){
 
@@ -163,9 +204,7 @@ public function sendPutData($ID , $url){
     }
 
 
-    public function delete(){
-
-    }
+   
 
     public function getStatus(){
 

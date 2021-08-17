@@ -9,6 +9,7 @@ use App\Http\Requests\MassDestroyCategoryRequest;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Classes\Categories;
 use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -37,8 +38,14 @@ class CategoryController extends Controller
 
     public function store(StoreCategoryRequest $request)
     {
+
+
+
         $category = Category::create($request->all());
 
+   
+
+        
         if ($request->input('image', false)) {
             $category->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
         }
@@ -46,6 +53,11 @@ class CategoryController extends Controller
         if ($media = $request->input('ck-media', false)) {
             Media::whereIn('id', $media)->update(['model_id' => $category->id]);
         }
+
+        // $cat = new  Categories();
+        // $cat->setObject($request->all());
+        // $cat->setID($category->id);
+        // $cat->store();
 
         return redirect()->route('admin.categories.index');
     }
@@ -61,6 +73,7 @@ class CategoryController extends Controller
     {
         $category->update($request->all());
 
+
         if ($request->input('image', false)) {
             if (!$category->image || $request->input('image') !== $category->image->file_name) {
                 if ($category->image) {
@@ -72,8 +85,14 @@ class CategoryController extends Controller
             $category->image->delete();
         }
 
+        // $cat = new  Categories();
+        // $cat->setObject($request->all());
+        // $cat->setID($category->id);
+        // $cat->update();
+
         return redirect()->route('admin.categories.index');
     }
+    
 
     public function show(Category $category)
     {
@@ -86,7 +105,10 @@ class CategoryController extends Controller
     {
         abort_if(Gate::denies('category_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $category->delete();
+        // $category->delete();
+        // $cat = new  Categories();
+        // $cat->setID($category->id);
+        // $cat->delete();
 
         return back();
     }
@@ -106,6 +128,8 @@ class CategoryController extends Controller
         $model->id     = $request->input('crud_id', 0);
         $model->exists = true;
         $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
+     
+    
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
