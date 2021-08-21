@@ -23,6 +23,15 @@ class Order extends Model
         'shippedAwaitingDelivery' => 'shippedAwaitingDelivery',
     ];
 
+    public const GROUP_SELECT = [
+        'price_group_1' => 'group 1',
+        'price_group_2' => 'group 2',
+        'price_group_3' => 'group 3',
+        'price_group_4' => 'group 4',
+        'price_group_5' => 'group 5',
+        'price_group_6' => 'group 6',
+    ];
+
     public $table = 'orders';
 
     protected $dates = [
@@ -32,17 +41,24 @@ class Order extends Model
     ];
 
     protected $fillable = [
+        'fname',
+        'lname',
+        'group',
+        'username',
+        'email',
         'orderid',
         'payment',
         'payment_status',
         'status',
-        'total_cost',
         'street_1',
         'city',
         'state',
         'country',
         'zip',
         'phone',
+        'total_cost',
+        'date',
+        'notes',
         'created_at',
         'updated_at',
         'deleted_at',

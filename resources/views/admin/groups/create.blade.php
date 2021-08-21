@@ -23,20 +23,20 @@
                 <span class="help-block">{{ trans('cruds.group.fields.group_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="users">{{ trans('cruds.group.fields.user') }}</label>
+                <label for="clients">{{ trans('cruds.group.fields.clients') }}</label>
                 <div style="padding-bottom: 4px">
                     <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
                     <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
                 </div>
-                <select class="form-control select2 {{ $errors->has('users') ? 'is-invalid' : '' }}" name="users[]" id="users" multiple required>
-                    @foreach($users as $id => $user)
-                        <option value="{{ $id }}" {{ in_array($id, old('users', [])) ? 'selected' : '' }}>{{ $user }}</option>
+                <select class="form-control select2 {{ $errors->has('clients') ? 'is-invalid' : '' }}" name="clients[]" id="clients" multiple>
+                    @foreach($clients as $id => $client)
+                        <option value="{{ $id }}" {{ in_array($id, old('clients', [])) ? 'selected' : '' }}>{{ $client }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('users'))
-                    <span class="text-danger">{{ $errors->first('users') }}</span>
+                @if($errors->has('clients'))
+                    <span class="text-danger">{{ $errors->first('clients') }}</span>
                 @endif
-                <span class="help-block">{{ trans('cruds.group.fields.user_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.group.fields.clients_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

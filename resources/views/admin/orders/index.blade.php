@@ -3,9 +3,9 @@
 @can('order_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.orders.create') }}">
+            {{-- <a class="btn btn-success" href="{{ route('admin.orders.create') }}">
                 {{ trans('global.add') }} {{ trans('cruds.order.title_singular') }}
-            </a>
+            </a> --}}
             <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
                 {{ trans('global.app_csvImport') }}
             </button>
@@ -30,6 +30,21 @@
                             {{ trans('cruds.order.fields.id') }}
                         </th>
                         <th>
+                            {{ trans('cruds.order.fields.fname') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.order.fields.lname') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.order.fields.group') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.order.fields.username') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.order.fields.email') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.order.fields.orderid') }}
                         </th>
                         <th>
@@ -40,9 +55,6 @@
                         </th>
                         <th>
                             {{ trans('cruds.order.fields.status') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.order.fields.total_cost') }}
                         </th>
                         <th>
                             {{ trans('cruds.order.fields.street_1') }}
@@ -63,11 +75,40 @@
                             {{ trans('cruds.order.fields.phone') }}
                         </th>
                         <th>
+                            {{ trans('cruds.order.fields.total_cost') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.order.fields.date') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.order.fields.notes') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
                     <tr>
                         <td>
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        </td>
+                        <td>
+                            <select class="search" strict="true">
+                                <option value>{{ trans('global.all') }}</option>
+                                @foreach(App\Models\Order::GROUP_SELECT as $key => $item)
+                                    <option value="{{ $item }}">{{ $item }}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                         </td>
                         <td>
                             <input class="search" type="text" placeholder="{{ trans('global.search') }}">
@@ -116,6 +157,12 @@
                             <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                         </td>
                         <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        </td>
+                        <td>
                         </td>
                     </tr>
                 </thead>
@@ -129,6 +176,21 @@
                                 {{ $order->id ?? '' }}
                             </td>
                             <td>
+                                {{ $order->fname ?? '' }}
+                            </td>
+                            <td>
+                                {{ $order->lname ?? '' }}
+                            </td>
+                            <td>
+                                {{ App\Models\Order::GROUP_SELECT[$order->group] ?? '' }}
+                            </td>
+                            <td>
+                                {{ $order->username ?? '' }}
+                            </td>
+                            <td>
+                                {{ $order->email ?? '' }}
+                            </td>
+                            <td>
                                 {{ $order->orderid ?? '' }}
                             </td>
                             <td>
@@ -139,9 +201,6 @@
                             </td>
                             <td>
                                 {{ App\Models\Order::STATUS_SELECT[$order->status] ?? '' }}
-                            </td>
-                            <td>
-                                {{ $order->total_cost ?? '' }}
                             </td>
                             <td>
                                 {{ $order->street_1 ?? '' }}
@@ -160,6 +219,15 @@
                             </td>
                             <td>
                                 {{ $order->phone ?? '' }}
+                            </td>
+                            <td>
+                                {{ $order->total_cost ?? '' }}
+                            </td>
+                            <td>
+                                {{ $order->date ?? '' }}
+                            </td>
+                            <td>
+                                {{ $order->notes ?? '' }}
                             </td>
                             <td>
                                 @can('order_show')

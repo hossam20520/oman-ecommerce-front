@@ -33,6 +33,8 @@ body > div > nav > ul.navbar-nav.ml-auto > li > a{
     @if (strtoupper(app()->getLocale()) == "AR")
     <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css">
     <link href="{{ asset('css/rtl.css') }}" rel="stylesheet" />
+    
+   
 
     <style>
 
@@ -47,7 +49,8 @@ body > div > nav > ul.navbar-nav.ml-auto > li > a{
 
 
 </style>
-    @endif
+@endif
+
     @yield('styles')
 </head>
 

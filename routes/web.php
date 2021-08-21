@@ -11,8 +11,9 @@ Route::get('/home', function () {
 
 Auth::routes(['register' => false]);
 Route::post('connections/conntect', 'ConnectController@connect')->name('connections.connect');
+
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/', 'DashboardController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');
@@ -64,6 +65,32 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('orders/parse-csv-import', 'OrdersController@parseCsvImport')->name('orders.parseCsvImport');
     Route::post('orders/process-csv-import', 'OrdersController@processCsvImport')->name('orders.processCsvImport');
     Route::resource('orders', 'OrdersController');
+
+    // Clients
+    Route::delete('clients/destroy', 'ClientsController@massDestroy')->name('clients.massDestroy');
+    Route::post('clients/parse-csv-import', 'ClientsController@parseCsvImport')->name('clients.parseCsvImport');
+    Route::post('clients/process-csv-import', 'ClientsController@processCsvImport')->name('clients.processCsvImport');
+    Route::resource('clients', 'ClientsController');
+
+    // Make
+    Route::delete('makes/destroy', 'MakeController@massDestroy')->name('makes.massDestroy');
+    Route::post('makes/parse-csv-import', 'MakeController@parseCsvImport')->name('makes.parseCsvImport');
+    Route::post('makes/process-csv-import', 'MakeController@processCsvImport')->name('makes.processCsvImport');
+    Route::resource('makes', 'MakeController');
+
+    // Type
+    Route::delete('types/destroy', 'TypeController@massDestroy')->name('types.massDestroy');
+    Route::post('types/parse-csv-import', 'TypeController@parseCsvImport')->name('types.parseCsvImport');
+    Route::post('types/process-csv-import', 'TypeController@processCsvImport')->name('types.processCsvImport');
+    Route::resource('types', 'TypeController');
+
+    // Modell
+    Route::delete('modells/destroy', 'ModellController@massDestroy')->name('modells.massDestroy');
+    Route::post('modells/parse-csv-import', 'ModellController@parseCsvImport')->name('modells.parseCsvImport');
+    Route::post('modells/process-csv-import', 'ModellController@processCsvImport')->name('modells.processCsvImport');
+    Route::resource('modells', 'ModellController');
+
+
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password

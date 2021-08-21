@@ -10,6 +10,51 @@
         <form method="POST" action="{{ route("admin.orders.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
+                <label class="required" for="fname">{{ trans('cruds.order.fields.fname') }}</label>
+                <input class="form-control {{ $errors->has('fname') ? 'is-invalid' : '' }}" type="text" name="fname" id="fname" value="{{ old('fname', '') }}" required>
+                @if($errors->has('fname'))
+                    <span class="text-danger">{{ $errors->first('fname') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.order.fields.fname_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="lname">{{ trans('cruds.order.fields.lname') }}</label>
+                <input class="form-control {{ $errors->has('lname') ? 'is-invalid' : '' }}" type="text" name="lname" id="lname" value="{{ old('lname', '') }}" required>
+                @if($errors->has('lname'))
+                    <span class="text-danger">{{ $errors->first('lname') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.order.fields.lname_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required">{{ trans('cruds.order.fields.group') }}</label>
+                <select class="form-control {{ $errors->has('group') ? 'is-invalid' : '' }}" name="group" id="group" required>
+                    <option value disabled {{ old('group', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                    @foreach(App\Models\Order::GROUP_SELECT as $key => $label)
+                        <option value="{{ $key }}" {{ old('group', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('group'))
+                    <span class="text-danger">{{ $errors->first('group') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.order.fields.group_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="username">{{ trans('cruds.order.fields.username') }}</label>
+                <input class="form-control {{ $errors->has('username') ? 'is-invalid' : '' }}" type="text" name="username" id="username" value="{{ old('username', '') }}" required>
+                @if($errors->has('username'))
+                    <span class="text-danger">{{ $errors->first('username') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.order.fields.username_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="email">{{ trans('cruds.order.fields.email') }}</label>
+                <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" id="email" value="{{ old('email') }}" required>
+                @if($errors->has('email'))
+                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.order.fields.email_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label for="orderid">{{ trans('cruds.order.fields.orderid') }}</label>
                 <input class="form-control {{ $errors->has('orderid') ? 'is-invalid' : '' }}" type="text" name="orderid" id="orderid" value="{{ old('orderid', '') }}">
                 @if($errors->has('orderid'))
@@ -50,14 +95,6 @@
                     <span class="text-danger">{{ $errors->first('status') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.order.fields.status_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label for="total_cost">{{ trans('cruds.order.fields.total_cost') }}</label>
-                <input class="form-control {{ $errors->has('total_cost') ? 'is-invalid' : '' }}" type="number" name="total_cost" id="total_cost" value="{{ old('total_cost', '') }}" step="0.01">
-                @if($errors->has('total_cost'))
-                    <span class="text-danger">{{ $errors->first('total_cost') }}</span>
-                @endif
-                <span class="help-block">{{ trans('cruds.order.fields.total_cost_helper') }}</span>
             </div>
             <div class="form-group">
                 <label for="street_1">{{ trans('cruds.order.fields.street_1') }}</label>
@@ -106,6 +143,30 @@
                     <span class="text-danger">{{ $errors->first('phone') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.order.fields.phone_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="total_cost">{{ trans('cruds.order.fields.total_cost') }}</label>
+                <input class="form-control {{ $errors->has('total_cost') ? 'is-invalid' : '' }}" type="number" name="total_cost" id="total_cost" value="{{ old('total_cost', '') }}" step="0.01">
+                @if($errors->has('total_cost'))
+                    <span class="text-danger">{{ $errors->first('total_cost') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.order.fields.total_cost_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="date">{{ trans('cruds.order.fields.date') }}</label>
+                <input class="form-control {{ $errors->has('date') ? 'is-invalid' : '' }}" type="text" name="date" id="date" value="{{ old('date', '') }}" required>
+                @if($errors->has('date'))
+                    <span class="text-danger">{{ $errors->first('date') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.order.fields.date_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="notes">{{ trans('cruds.order.fields.notes') }}</label>
+                <textarea class="form-control {{ $errors->has('notes') ? 'is-invalid' : '' }}" name="notes" id="notes">{{ old('notes') }}</textarea>
+                @if($errors->has('notes'))
+                    <span class="text-danger">{{ $errors->first('notes') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.order.fields.notes_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

@@ -17,6 +17,24 @@ class UpdateOrderRequest extends FormRequest
     public function rules()
     {
         return [
+            'fname' => [
+                'string',
+                
+            ],
+            'lname' => [
+                'string',
+               
+            ],
+            'group' => [
+                
+            ],
+            'username' => [
+                'string',
+              
+            ],
+            'email' => [
+              
+            ],
             'orderid' => [
                 'string',
                 'nullable',
@@ -26,7 +44,7 @@ class UpdateOrderRequest extends FormRequest
                 'nullable',
             ],
             'status' => [
-                'required',
+               
             ],
             'street_1' => [
                 'string',
@@ -51,6 +69,10 @@ class UpdateOrderRequest extends FormRequest
             'phone' => [
                 'string',
                 'nullable',
+            ],
+            'date' => [
+                'string',
+                
             ],
         ];
     }

@@ -29,8 +29,7 @@ class StoreFilterRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'capacities' => [
-                'string',
+            'resutls' => [
                 'required',
             ],
         ];

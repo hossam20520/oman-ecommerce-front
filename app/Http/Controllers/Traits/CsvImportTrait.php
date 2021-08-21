@@ -46,9 +46,7 @@ trait CsvImportTrait
             $for_insert = array_chunk($insert, 100);
 
             foreach ($for_insert as $insert_item) {
-                // dd($modelName);
                 $model::insert($insert_item);
-                
             }
 
             $rows  = count($insert);

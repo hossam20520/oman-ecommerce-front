@@ -25,6 +25,46 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.order.fields.fname') }}
+                        </th>
+                        <td>
+                            {{ $order->fname }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.order.fields.lname') }}
+                        </th>
+                        <td>
+                            {{ $order->lname }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.order.fields.group') }}
+                        </th>
+                        <td>
+                            {{ App\Models\Order::GROUP_SELECT[$order->group] ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.order.fields.username') }}
+                        </th>
+                        <td>
+                            {{ $order->username }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.order.fields.email') }}
+                        </th>
+                        <td>
+                            {{ $order->email }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.order.fields.orderid') }}
                         </th>
                         <td>
@@ -53,14 +93,6 @@
                         </th>
                         <td>
                             {{ App\Models\Order::STATUS_SELECT[$order->status] ?? '' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.order.fields.total_cost') }}
-                        </th>
-                        <td>
-                            {{ $order->total_cost }}
                         </td>
                     </tr>
                     <tr>
@@ -109,6 +141,30 @@
                         </th>
                         <td>
                             {{ $order->phone }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.order.fields.total_cost') }}
+                        </th>
+                        <td>
+                            {{ $order->total_cost }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.order.fields.date') }}
+                        </th>
+                        <td>
+                            {{ $order->date }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.order.fields.notes') }}
+                        </th>
+                        <td>
+                            {{ $order->notes }}
                         </td>
                     </tr>
                 </tbody>

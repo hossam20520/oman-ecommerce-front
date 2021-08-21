@@ -7,8 +7,8 @@ use App\Http\Controllers\Traits\CsvImportTrait;
 use App\Http\Requests\MassDestroyGroupRequest;
 use App\Http\Requests\StoreGroupRequest;
 use App\Http\Requests\UpdateGroupRequest;
+use App\Models\Client;
 use App\Models\Group;
-use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,26 +21,26 @@ class GroupsController extends Controller
     {
         abort_if(Gate::denies('group_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $groups = Group::with(['users'])->get();
+        $groups = Group::with(['clients'])->get();
 
-        $users = User::get();
+        $clients = Client::get();
 
-        return view('admin.groups.index', compact('groups', 'users'));
+        return view('admin.groups.index', compact('groups', 'clients'));
     }
 
     public function create()
     {
         abort_if(Gate::denies('group_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $users = User::pluck('email', 'id');
+        $clients = Client::pluck('email', 'id');
 
-        return view('admin.groups.create', compact('users'));
+        return view('admin.groups.create', compact('clients'));
     }
 
     public function store(StoreGroupRequest $request)
     {
         $group = Group::create($request->all());
-        $group->users()->sync($request->input('users', []));
+        $group->clients()->sync($request->input('clients', []));
 
         return redirect()->route('admin.groups.index');
     }
@@ -49,17 +49,17 @@ class GroupsController extends Controller
     {
         abort_if(Gate::denies('group_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $users = User::pluck('email', 'id');
+        $clients = Client::pluck('email', 'id');
 
-        $group->load('users');
+        $group->load('clients');
 
-        return view('admin.groups.edit', compact('users', 'group'));
+        return view('admin.groups.edit', compact('clients', 'group'));
     }
 
     public function update(UpdateGroupRequest $request, Group $group)
     {
         $group->update($request->all());
-        $group->users()->sync($request->input('users', []));
+        $group->clients()->sync($request->input('clients', []));
 
         return redirect()->route('admin.groups.index');
     }
@@ -68,7 +68,7 @@ class GroupsController extends Controller
     {
         abort_if(Gate::denies('group_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $group->load('users');
+        $group->load('clients');
 
         return view('admin.groups.show', compact('group'));
     }

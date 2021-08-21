@@ -22,7 +22,7 @@ class Filter extends Model
         'brand',
         'model',
         'type',
-        'capacities',
+        'resutls',
         'created_at',
         'updated_at',
         'deleted_at',

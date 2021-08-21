@@ -29,8 +29,7 @@ class UpdateFilterRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'capacities' => [
-                'string',
+            'resutls' => [
                 'required',
             ],
         ];

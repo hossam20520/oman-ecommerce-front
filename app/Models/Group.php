@@ -11,12 +11,12 @@ class Group extends Model
     use HasFactory;
 
     public const GROUP_SELECT = [
-        'group_1' => 'group_1',
-        'group_2' => 'group_2',
-        'group_3' => 'group_3',
-        'group_4' => 'group_4',
-        'group_5' => 'group_5',
-        'group_6' => 'group_6',
+        'price_group_1' => 'Group 1',
+        'price_group_2' => 'Group 2',
+        'price_group_3' => 'Group 3',
+        'price_group_4' => 'Group 4',
+        'price_group_5' => 'Group 5',
+        'price_group_6' => 'Group 6',
     ];
 
     public $table = 'groups';
@@ -34,9 +34,9 @@ class Group extends Model
         'deleted_at',
     ];
 
-    public function users()
+    public function clients()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(Client::class);
     }
 
     protected function serializeDate(DateTimeInterface $date)

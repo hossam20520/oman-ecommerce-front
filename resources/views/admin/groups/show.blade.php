@@ -33,11 +33,11 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.group.fields.user') }}
+                            {{ trans('cruds.group.fields.clients') }}
                         </th>
                         <td>
-                            @foreach($group->users as $key => $user)
-                                <span class="label label-info">{{ $user->email }}</span>
+                            @foreach($group->clients as $key => $clients)
+                                <span class="label label-info">{{ $clients->email }}</span>
                             @endforeach
                         </td>
                     </tr>

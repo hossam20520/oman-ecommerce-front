@@ -17,11 +17,10 @@ class UpdateGroupRequest extends FormRequest
     public function rules()
     {
         return [
-            'users.*' => [
+            'clients.*' => [
                 'integer',
             ],
-            'users' => [
-                'required',
+            'clients' => [
                 'array',
             ],
         ];

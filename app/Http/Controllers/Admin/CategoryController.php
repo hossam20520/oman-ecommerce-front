@@ -38,14 +38,8 @@ class CategoryController extends Controller
 
     public function store(StoreCategoryRequest $request)
     {
-
-
-
         $category = Category::create($request->all());
 
-   
-
-        
         if ($request->input('image', false)) {
             $category->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
         }
@@ -58,6 +52,8 @@ class CategoryController extends Controller
         // $cat->setObject($request->all());
         // $cat->setID($category->id);
         // $cat->store();
+
+
 
         return redirect()->route('admin.categories.index');
     }
@@ -72,7 +68,6 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         $category->update($request->all());
-
 
         if ($request->input('image', false)) {
             if (!$category->image || $request->input('image') !== $category->image->file_name) {
@@ -90,9 +85,9 @@ class CategoryController extends Controller
         // $cat->setID($category->id);
         // $cat->update();
 
+
         return redirect()->route('admin.categories.index');
     }
-    
 
     public function show(Category $category)
     {
@@ -104,6 +99,9 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         abort_if(Gate::denies('category_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $category->delete();
+
 
         // $category->delete();
         // $cat = new  Categories();
@@ -128,8 +126,6 @@ class CategoryController extends Controller
         $model->id     = $request->input('crud_id', 0);
         $model->exists = true;
         $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
-     
-    
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }

@@ -33,7 +33,7 @@
                             {{ trans('cruds.group.fields.group') }}
                         </th>
                         <th>
-                            {{ trans('cruds.group.fields.user') }}
+                            {{ trans('cruds.group.fields.clients') }}
                         </th>
                         <th>
                             &nbsp;
@@ -56,7 +56,7 @@
                         <td>
                             <select class="search">
                                 <option value>{{ trans('global.all') }}</option>
-                                @foreach($users as $key => $item)
+                                @foreach($clients as $key => $item)
                                     <option value="{{ $item->email }}">{{ $item->email }}</option>
                                 @endforeach
                             </select>
@@ -78,7 +78,7 @@
                                 {{ App\Models\Group::GROUP_SELECT[$group->group] ?? '' }}
                             </td>
                             <td>
-                                @foreach($group->users as $key => $item)
+                                @foreach($group->clients as $key => $item)
                                     <span class="badge badge-info">{{ $item->email }}</span>
                                 @endforeach
                             </td>

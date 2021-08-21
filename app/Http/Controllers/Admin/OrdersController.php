@@ -8,6 +8,7 @@ use App\Http\Requests\MassDestroyOrderRequest;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Order;
+use App\Classes\Orders;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,6 +51,11 @@ class OrdersController extends Controller
     {
         $order->update($request->all());
 
+        // $ord = new  Orders();
+        // $ord->setObject($request->all());
+        // $ord->setID($order->id);
+        // $ord->update();
+        
         return redirect()->route('admin.orders.index');
     }
 

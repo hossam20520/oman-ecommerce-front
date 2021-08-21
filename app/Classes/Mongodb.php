@@ -51,7 +51,9 @@ public function sendPutData($obj , $url){
 
     $res->getHeader('content-type');
     $response = json_decode($res->getBody(), true);
-   $this->response  = $response;
+    $this->response  = $response;
+
+
 
 }
 

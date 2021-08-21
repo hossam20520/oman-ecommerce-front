@@ -200,6 +200,90 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 48,
+                'title' => 'client_create',
+            ],
+            [
+                'id'    => 49,
+                'title' => 'client_edit',
+            ],
+            [
+                'id'    => 50,
+                'title' => 'client_show',
+            ],
+            [
+                'id'    => 51,
+                'title' => 'client_delete',
+            ],
+            [
+                'id'    => 52,
+                'title' => 'client_access',
+            ],
+            [
+                'id'    => 53,
+                'title' => 'make_create',
+            ],
+            [
+                'id'    => 54,
+                'title' => 'make_edit',
+            ],
+            [
+                'id'    => 55,
+                'title' => 'make_show',
+            ],
+            [
+                'id'    => 56,
+                'title' => 'make_delete',
+            ],
+            [
+                'id'    => 57,
+                'title' => 'make_access',
+            ],
+            [
+                'id'    => 58,
+                'title' => 'car_guid_access',
+            ],
+            [
+                'id'    => 59,
+                'title' => 'type_create',
+            ],
+            [
+                'id'    => 60,
+                'title' => 'type_edit',
+            ],
+            [
+                'id'    => 61,
+                'title' => 'type_show',
+            ],
+            [
+                'id'    => 62,
+                'title' => 'type_delete',
+            ],
+            [
+                'id'    => 63,
+                'title' => 'type_access',
+            ],
+            [
+                'id'    => 64,
+                'title' => 'modell_create',
+            ],
+            [
+                'id'    => 65,
+                'title' => 'modell_edit',
+            ],
+            [
+                'id'    => 66,
+                'title' => 'modell_show',
+            ],
+            [
+                'id'    => 67,
+                'title' => 'modell_delete',
+            ],
+            [
+                'id'    => 68,
+                'title' => 'modell_access',
+            ],
+            [
+                'id'    => 69,
                 'title' => 'profile_password_edit',
             ],
         ];

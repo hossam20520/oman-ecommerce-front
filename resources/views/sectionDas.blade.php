@@ -7,96 +7,63 @@
       <div class="row">
         <div class="col-md-6">
           <!-- DIRECT CHAT -->
-          <div class="card">
+          <div class="card current_pro">
             <div class="card-header">
-              <h3 class="card-title">Recently Added Products</h3>
+              <h3 class="card-title">{{ trans('dash.dash.rcao') }}</h3>
     
-              <div class="card-tools">
+              {{-- <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                   <i class="fas fa-minus"></i>
                 </button>
                 <button type="button" class="btn btn-tool" data-card-widget="remove">
                   <i class="fas fa-times"></i>
                 </button>
-              </div>
+              </div> --}}
             </div>
             <!-- /.card-header -->
             <div class="card-body p-0">
               <ul class="products-list product-list-in-card pl-2 pr-2">
-                <li class="item">
-                  <div class="product-img">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpAs4n8cgOkQe12tn0v4X883lKBgjzh7nM-w&usqp=CAU" alt="Product Image" class="img-size-50">
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title"> Air Filter Small
-                      <span class="badge badge-warning float-right">100 OMR</span></a>
-                    <span class="product-description">
-                        Air Filter Small for your car lorem
-                    </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img src="https://eg.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/19/23388/1.jpg?9765" alt="Product Image" class="img-size-50">
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">Bicycle
-                      <span class="badge badge-info float-right">$700</span></a>
-                    <span class="product-description">
-                      26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                    </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img src="https://images.yaoota.com/5aCxWpX3kq0b7FGmRkloHLICVfM=/trim/yaootaweb-production/media/crawledproductimages/562953f2a92f8e3a06658e8e400cf33dd18ce3a6.jpg" alt="Product Image" class="img-size-50">
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">
-                      Xbox One <span class="badge badge-danger float-right">
-                      $350
-                    </span>
-                    </a>
-                    <span class="product-description">
-                      Xbox One Console Bundle with Halo Master Chief Collection.
-                    </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img src="https://sc04.alicdn.com/kf/HTB1L.0ilLBNTKJjy0Fdq6APpVXaF.jpg" alt="Product Image" class="img-size-50">
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">PlayStation 4
-                      <span class="badge badge-success float-right">$399</span></a>
-                    <span class="product-description">
-                      PlayStation 4 500GB Console (PS4)
-                    </span>
-                  </div>
-                </li>
+               
+               @foreach ($latest_products as $item)
+               <li class="item">
+                <div class="product-img">
+                  @if($item->image)
+                  {{-- <a href="{{ $item->image->getUrl() }}" target="_blank" style="display: inline-block">
+                      <img src="">
+                  </a> --}}
+
+                  <img src="{{ $item->image->getUrl('thumb') }}" alt="Product Image" class="img-size-50">
+               
+                  @endif
+                 
+                </div>
+                <div class="product-info">
+                  <a href="{{ route('admin.inventories.show' , $item->id) }}" class="product-title"> {{ $item->name }}
+                    <span class="badge badge-warning float-right"> {{ $item->price }} OMR</span></a>
+                  <span class="product-description">
+                    {{ $item->short_desc }}
+                  </span>
+                </div>
+              </li>
+               @endforeach
+          
 
 
-                <li class="item">
-                    <div class="product-img">
-                      <img src="https://sc04.alicdn.com/kf/HTB1L.0ilLBNTKJjy0Fdq6APpVXaF.jpg" alt="Product Image" class="img-size-50">
-                    </div>
-                    <div class="product-info">
-                      <a href="javascript:void(0)" class="product-title">PlayStation 4
-                        <span class="badge badge-success float-right">$399</span></a>
-                      <span class="product-description">
-                        PlayStation 4 500GB Console (PS4)
-                      </span>
-                    </div>
-                  </li>
+
+
+      
+                <!-- /.item -->
+        
+                <!-- /.item -->
+          
+
+
                 <!-- /.item -->
               </ul>
             </div>
             <!-- /.card-body -->
-            <div class="card-footer text-center">
-              <a href="javascript:void(0)" class="uppercase">View All Products</a>
+            <div class="card-footer text-center showAll">
+              <a href="{{ route('admin.inventories.index') }}" class="uppercase">{{ trans('dash.dash.vallPr') }}</a>
             </div>
             <!-- /.card-footer -->
           </div>
@@ -113,11 +80,11 @@
 
 
           
-          <div class="card">
+          <div class="card Latest_Members">
             <div class="card-header">
-              <h3 class="card-title">Latest Members</h3>
+              <h3 class="card-title">{{ trans('dash.dash.ltmem') }}</h3>
 
-              <div class="card-tools">
+              {{-- <div class="card-tools">
                 <span class="badge badge-danger">8 New Members</span>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                   <i class="fas fa-minus"></i>
@@ -125,59 +92,27 @@
                 <button type="button" class="btn btn-tool" data-card-widget="remove">
                   <i class="fas fa-times"></i>
                 </button>
-              </div>
+              </div> --}}
             </div>
             <!-- /.card-header -->
             <div class="card-body p-0">
               <ul class="users-list clearfix">
-                <li>
-                  <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png" alt="User Image">
-                  <a class="users-list-name" href="#">Alexander Pierce</a>
-                  <span class="users-list-date">Today</span>
-                </li>
-                <li>
-                  <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png" alt="User Image">
-                  <a class="users-list-name" href="#">Norman</a>
-                  <span class="users-list-date">Yesterday</span>
-                </li>
-                <li>
-                  <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png" alt="User Image">
-                  <a class="users-list-name" href="#">Jane</a>
-                  <span class="users-list-date">12 Jan</span>
-                </li>
-                <li>
-                  <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png" alt="User Image">
-                  <a class="users-list-name" href="#">John</a>
-                  <span class="users-list-date">12 Jan</span>
-                </li>
-                <li>
-                  <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png" alt="User Image">
-                  <a class="users-list-name" href="#">Alexander</a>
-                  <span class="users-list-date">13 Jan</span>
-                </li>
-                <li>
-                  <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png" alt="User Image">
-                  <a class="users-list-name" href="#">Sarah</a>
-                  <span class="users-list-date">14 Jan</span>
-                </li>
-                <li>
-                  <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png" alt="User Image">
-                  <a class="users-list-name" href="#">Nora</a>
-                  <span class="users-list-date">15 Jan</span>
-                </li>
-                <li>
-                  <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png" alt="User Image">
-                  <a class="users-list-name" href="#">Nadia</a>
-                  <span class="users-list-date">15 Jan</span>
-                </li>
 
+                @foreach ($lastUsers as $item)
+                <li>
+                  <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png" alt="User Image">
+                  <a class="users-list-name" href="{{ route('admin.clients.show' , $item->id ) }}">{{ $item->fname }}</a>
+                  <span class="users-list-date">{{ $item->role }}</span>
+                </li>
+                @endforeach
+             
                 
               </ul>
               <!-- /.users-list -->
             </div>
             <!-- /.card-body -->
-            <div class="card-footer text-center">
-              <a href="javascript:">View All Users</a>
+            <div class="card-footer text-center showAllV">
+              <a href="{{ route('admin.clients.index') }}">{{ trans('dash.dash.viewAlU') }}</a>
             </div>
             <!-- /.card-footer -->
           </div>
@@ -195,42 +130,42 @@
 
     <div class="col-md-4">
       <!-- Info Boxes Style 2 -->
-      <div class="info-box mb-3 bg-warning">
-        <span class="info-box-icon"><i class="fas fa-tag"></i></span>
-
+      <div class="info-box mb-3 bg-danger rejeca">
+        <span class="info-box-icon"><i class="fas fa-credit-card"></i></span>
+ 
         <div class="info-box-content">
-          <span class="info-box-text">Inventory</span>
-          <span class="info-box-number">5,200</span>
+          <span class="info-box-text">{{ trans('dash.dash.rjpa') }}</span>
+          <span class="info-box-number">{{ $rejectedPayment }}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
       <!-- /.info-box -->
-      <div class="info-box mb-3 bg-success">
-        <span class="info-box-icon"><i class="far fa-heart"></i></span>
+      <div class="info-box mb-3 bg-success waitingDel">
+        <span class="info-box-icon"><i class="fas fa-truck"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Categories</span>
-          <span class="info-box-number">100</span>
+          <span class="info-box-text">{{ trans('dash.dash.awtd') }}</span>
+          <span class="info-box-number">{{ $awiting }}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
       <!-- /.info-box -->
-      <div class="info-box mb-3 bg-danger">
+      <div class="info-box mb-3 bg-danger total_orders">
         <span class="info-box-icon"><i class="fas fa-box-open"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Total Oreders</span>
-          <span class="info-box-number">114,381</span>
+          <span class="info-box-text">{{ trans('dash.dash.totalor') }}</span>
+          <span class="info-box-number">{{ $totalOrders }}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
       <!-- /.info-box -->
-      <div class="info-box mb-3 bg-info">
-        <span class="info-box-icon"><i class="far fa-hands-helping"></i></span>
+      <div class="info-box mb-3 bg-info wholese">
+        <span class="info-box-icon"><i class="fas fa-user"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Delivered Orders</span>
-          <span class="info-box-number">163,921</span>
+          <span class="info-box-text">{{ trans('dash.dash.whols') }}</span>
+          <span class="info-box-number">{{ $wholesaler }}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -243,18 +178,18 @@
   <div class="row">
 
     <div class="col-md-12">
-        <div class="card">
+        <div class="card latestorders" >
             <div class="card-header border-transparent">
-              <h3 class="card-title">Latest Orders</h3>
+              <h3 class="card-title">{{ trans('dash.dash.laor') }}</h3>
     
-              <div class="card-tools">
+              {{-- <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                   <i class="fas fa-minus"></i>
                 </button>
                 <button type="button" class="btn btn-tool" data-card-widget="remove">
                   <i class="fas fa-times"></i>
                 </button>
-              </div>
+              </div> --}}
             </div>
             <!-- /.card-header -->
             <div class="card-body p-0">
@@ -262,69 +197,52 @@
                 <table class="table m-0">
                   <thead>
                   <tr>
-                    <th>Order ID</th>
-                    <th>Item</th>
-                    <th>Status</th>
-                    <th>Total Cost</th>
+                    <th class="orderIda">{{ trans('dash.dash.OrderID') }}</th>
+                    <th class="nameus">{{ trans('dash.dash.Name') }}</th>
+                    <th class="PhoneUsers">{{ trans('dash.dash.phone') }}</th>
+                    <th class="statusName">{{ trans('dash.dash.Status') }}</th>
+                    <th class="TotalCosts">{{ trans('dash.dash.total_cost') }}</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="badge badge-success">Shipped</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">100</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="badge badge-warning">Pending</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20">200</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="badge badge-danger">Delivered</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">300</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="badge badge-info">Processing</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00c0ef" data-height="20">400</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="badge badge-warning">Pending</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20">400</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="badge badge-danger">Delivered</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">250</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="badge badge-success">Shipped</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">300</div>
-                    </td>
-                  </tr>
+
+        @foreach ($lastOrders as $item)
+        <tr>
+          <td><a href="pages/examples/invoice.html">{{ $item->orderid }}</a></td>
+         
+          <td>{{ $item->fname }} {{ $item->lname }}</td>
+          <td>{{ $item->phone }}</td>
+
+          @if ($item->status == "cancelled")
+          <td><span class="badge badge-danger">{{ $item->status }}</span></td>
+          @endif
+         
+
+          @if ($item->status == "delivered")
+          <td><span class="badge badge-success">{{ $item->status }}</span></td>
+          @endif
+
+
+          @if ($item->status == "pending")
+          <td><span class="badge badge-warning">{{ $item->status }}</span></td>
+          @endif
+          
+
+          @if ($item->status == "accepted")
+          <td><span class="badge badge-info">{{ $item->status }}</span></td>
+          @endif
+
+
+          @if ($item->status == "shippedAwaitingDelivery")
+          <td><span class="badge badge-success">{{ $item->status }}</span></td>
+          @endif
+
+          <td>
+            <div class="sparkbar" data-color="#00a65a" data-height="20">{{ $item->total_cost }}</div>
+          </td>
+        </tr>
+        @endforeach
+
                   </tbody>
                 </table>
               </div>
@@ -333,7 +251,7 @@
             <!-- /.card-body -->
             <div class="card-footer clearfix">
               {{-- <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a> --}}
-              <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+              <a href="{{ route('admin.orders.index') }}" class="btn btn-sm btn-secondary float-right viwAllOrders">{{ trans('dash.dash.vaor') }}</a>
             </div>
             <!-- /.card-footer -->
           </div>

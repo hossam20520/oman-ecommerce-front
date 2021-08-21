@@ -17,6 +17,24 @@ class StoreOrderRequest extends FormRequest
     public function rules()
     {
         return [
+            'fname' => [
+                'string',
+                'required',
+            ],
+            'lname' => [
+                'string',
+                'required',
+            ],
+            'group' => [
+                'required',
+            ],
+            'username' => [
+                'string',
+                'required',
+            ],
+            'email' => [
+                'required',
+            ],
             'orderid' => [
                 'string',
                 'nullable',
@@ -51,6 +69,10 @@ class StoreOrderRequest extends FormRequest
             'phone' => [
                 'string',
                 'nullable',
+            ],
+            'date' => [
+                'string',
+                'required',
             ],
         ];
     }

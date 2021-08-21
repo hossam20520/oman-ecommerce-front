@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-12 col-sm-6 col-md-3">
-      <div class="info-box">
+      <div class="info-box rejected_orders">
         <span class="info-box-icon bg-danger  elevation-1"><i class="fas fa-times-circle"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Rejected Orders</span>
+          <span class="info-box-text">{{ trans('dash.dash.rjo') }}</span>
           <span class="info-box-number">
-            20
+           {{ $rejected }}
           </span>
         </div>
         <!-- /.info-box-content -->
@@ -17,12 +17,12 @@
 
 
     <div class="col-12 col-sm-6 col-md-3">
-      <div class="info-box mb-3">
+      <div class="info-box mb-3 accepted_orders">
         <span class="info-box-icon bg-success elevation-1"><i class="fas fa-clipboard-check"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Accepted Orders</span>
-          <span class="info-box-number">100</span>
+          <span class="info-box-text">{{ trans('dash.dash.aco') }}</span>
+          <span class="info-box-number">{{ $accepted }}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -31,12 +31,12 @@
 
 
     <div class="col-12 col-sm-6 col-md-3">
-      <div class="info-box mb-3">
-        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-clock"></i></span>
+      <div class="info-box mb-3 pending_orders">
+        <span class="info-box-icon  elevation-1" style="background-color: #c341c2; color:white"><i class="fas fa-clock"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Pending Orders</span>
-          <span class="info-box-number">13</span>
+          <span class="info-box-text">{{ trans('dash.dash.pndo') }}</span>
+          <span class="info-box-number">{{ $pending }}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -49,12 +49,12 @@
     <div class="clearfix hidden-md-up"></div>
 
     <div class="col-12 col-sm-6 col-md-3">
-      <div class="info-box mb-3">
-        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-truck"></i></span>
+      <div class="info-box mb-3 delivered">
+        <span class="info-box-icon  elevation-1" style="background-color: #4850e0!important; color:white"><i class="fa fa-archive"></i></span>
 
         <div class="info-box-content">
-          <span class="info-box-text">Delivered Orders</span>
-          <span class="info-box-number">500</span>
+          <span class="info-box-text">{{ trans('dash.dash.dvor') }}</span>
+          <span class="info-box-number">{{ $deliverd }}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
