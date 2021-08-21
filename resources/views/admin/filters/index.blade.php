@@ -39,7 +39,7 @@
                             {{ trans('cruds.filter.fields.type') }}
                         </th>
                         <th>
-                            {{ trans('cruds.filter.fields.capacities') }}
+                            {{ trans('cruds.filter.fields.resutls') }}
                         </th>
                         <th>
                             &nbsp;
@@ -86,7 +86,7 @@
                                 {{ $filter->type ?? '' }}
                             </td>
                             <td>
-                                {{ $filter->capacities ?? '' }}
+                                {{ $filter->resutls ?? '' }}
                             </td>
                             <td>
                                 @can('filter_show')

@@ -34,12 +34,12 @@
                 <span class="help-block">{{ trans('cruds.filter.fields.type_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="capacities">{{ trans('cruds.filter.fields.capacities') }}</label>
-                <input class="form-control {{ $errors->has('capacities') ? 'is-invalid' : '' }}" type="text" name="capacities" id="capacities" value="{{ old('capacities', '') }}" required>
-                @if($errors->has('capacities'))
-                    <span class="text-danger">{{ $errors->first('capacities') }}</span>
+                <label class="required" for="resutls">{{ trans('cruds.filter.fields.resutls') }}</label>
+                <textarea class="form-control {{ $errors->has('resutls') ? 'is-invalid' : '' }}" name="resutls" id="resutls" required>{{ old('resutls') }}</textarea>
+                @if($errors->has('resutls'))
+                    <span class="text-danger">{{ $errors->first('resutls') }}</span>
                 @endif
-                <span class="help-block">{{ trans('cruds.filter.fields.capacities_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.filter.fields.resutls_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

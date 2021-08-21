@@ -49,10 +49,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.filter.fields.capacities') }}
+                            {{ trans('cruds.filter.fields.resutls') }}
                         </th>
                         <td>
-                            {{ $filter->capacities }}
+                            {{ $filter->resutls }}
                         </td>
                     </tr>
                 </tbody>
