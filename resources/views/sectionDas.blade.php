@@ -208,8 +208,8 @@
 
         @foreach ($lastOrders as $item)
         <tr>
-          <td><a href="pages/examples/invoice.html">{{ $item->orderid }}</a></td>
-         
+          
+          <td><a href="{{ route('admin.orders.show' ,  $item->id) }}">{{ $item->orderid }}</a></td>
           <td>{{ $item->fname }} {{ $item->lname }}</td>
           <td>{{ $item->phone }}</td>
 

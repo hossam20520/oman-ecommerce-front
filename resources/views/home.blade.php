@@ -18,6 +18,9 @@
 
 @section('scripts')
 @parent
+@if (strtoupper(app()->getLocale()) == "AR")
+
+
 <script>
     // introJs().start();
     introJs().onbeforeexit(function () {
@@ -196,4 +199,6 @@
     .start();
     
         </script>
+        
+        @endif
 @endsection

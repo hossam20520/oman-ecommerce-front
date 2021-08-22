@@ -18,6 +18,7 @@ return [
         'totalor' => 'Total Oreders',
         'whols' => 'Wholesalers',
         'laor' => 'Latest Orders',
+        'viewAlU'=> 'Show all Clients',
         'Name' => 'Name',
         'OrderID' => 'Order ID',
         'phone' => 'phone',
