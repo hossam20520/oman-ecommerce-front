@@ -48,10 +48,10 @@ class CategoryController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $category->id]);
         }
 
-        // $cat = new  Categories();
-        // $cat->setObject($request->all());
-        // $cat->setID($category->id);
-        // $cat->store();
+        $cat = new  Categories();
+        $cat->setObject($request->all());
+        $cat->setID($category->id);
+        $cat->store();
 
 
 
@@ -80,10 +80,10 @@ class CategoryController extends Controller
             $category->image->delete();
         }
 
-        // $cat = new  Categories();
-        // $cat->setObject($request->all());
-        // $cat->setID($category->id);
-        // $cat->update();
+        $cat = new  Categories();
+        $cat->setObject($request->all());
+        $cat->setID($category->id);
+        $cat->update();
 
 
         return redirect()->route('admin.categories.index');
@@ -103,10 +103,10 @@ class CategoryController extends Controller
         $category->delete();
 
 
-        // $category->delete();
-        // $cat = new  Categories();
-        // $cat->setID($category->id);
-        // $cat->delete();
+        $category->delete();
+        $cat = new  Categories();
+        $cat->setID($category->id);
+        $cat->delete();
 
         return back();
     }

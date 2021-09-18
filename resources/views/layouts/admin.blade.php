@@ -22,6 +22,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
 
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <link href="https://printjs-4de6.kxcdn.com/print.min.css" rel="stylesheet" />
+    
+    
+
 <style>
 body > div > nav > ul.navbar-nav.ml-auto > li > a{
   background-color: #dc3545;

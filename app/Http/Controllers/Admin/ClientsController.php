@@ -37,10 +37,10 @@ class ClientsController extends Controller
     {
         $client = Client::create($request->all());
       
-        // $clients = new  Clients();
-        // $clients->setObject($request->all());
-        // $clients->setID($client->id);
-        // $clients->store();
+        $clients = new  Clients();
+        $clients->setObject($request->all());
+        $clients->setID($client->id);
+        $clients->store();
 
         return redirect()->route('admin.clients.index');
     }
@@ -56,10 +56,10 @@ class ClientsController extends Controller
     {
         $client->update($request->all());
 
-        // $clients = new  Clients();
-        // $clients->setObject($request->all());
-        // $clients->setID($client->id);
-        // $clients->update();
+        $clients = new  Clients();
+        $clients->setObject($request->all());
+        $clients->setID($client->id);
+        $clients->update();
         return redirect()->route('admin.clients.index');
     }
 
@@ -76,9 +76,9 @@ class ClientsController extends Controller
 
         $client->delete();
         
-        // $clients = new  Clients();
-        // $clients->setID($client->id);
-        // $clients->delete();
+        $clients = new  Clients();
+        $clients->setID($client->id);
+        $clients->delete();
         return back();
     }
 

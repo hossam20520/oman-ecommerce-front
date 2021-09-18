@@ -25,7 +25,27 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Modell
     Route::apiResource('modells', 'ModellApiController');
+
+        // Bank
+    Route::post('banks/media', 'BankApiController@storeMedia')->name('banks.storeMedia');
+    Route::apiResource('banks', 'BankApiController');
+
+    // Info
+    Route::apiResource('infos', 'InfoApiController');
+
+    // Bank Info
+    Route::apiResource('bank-infos', 'BankInfoApiController');
+
+
+});
+Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin'], function () {
+
+    Route::post('banks/media', 'BankApiController@storeMedia')->name('banks.storeMedia');
+    Route::post('banks', 'bankStoreController@store');
 });
 
 Route::post('clients',  'ClientApiController@store');
 Route::post('orders',  'OrdersApiController@store');
+Route::post('order/update',  'OrdersApiController@update');
+Route::post('filter',  'FilterController@store');
+Route::post('dropdown',  'FilterController@dropdown');

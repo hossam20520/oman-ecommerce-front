@@ -51,10 +51,10 @@ class OrdersController extends Controller
     {
         $order->update($request->all());
 
-        // $ord = new  Orders();
-        // $ord->setObject($request->all());
-        // $ord->setID($order->id);
-        // $ord->update();
+        $ord = new  Orders();
+        $ord->setObject($request->all());
+        $ord->setID($order->id);
+        $ord->update();
         
         return redirect()->route('admin.orders.index');
     }

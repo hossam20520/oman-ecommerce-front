@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 @section('content')
-
+<button onclick="print()"  class="btn btn-default" style="margin-bottom:20px;"> Print </button>
 <div class="card">
     <div class="card-header">
         {{ trans('global.show') }} {{ trans('cruds.order.title') }}
     </div>
 
-    <div class="card-body">
+    <div class="card-body" id="cardPrint">
         <div class="form-group">
             <div class="form-group">
                 <a class="btn btn-default" href="{{ route('admin.orders.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped" id="tablee">
                 <tbody>
                     <tr>
                         <th>
@@ -179,5 +179,12 @@
 </div>
 
 
+<script> 
+var ele = document.getElementById("cardPrint")
 
+function print(){
+    printJS({printable: 'tablee', type: 'html', css: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css'})
+}
+
+ </script>
 @endsection

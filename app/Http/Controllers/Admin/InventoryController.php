@@ -11,6 +11,7 @@ use App\Http\Requests\UpdateInventoryRequest;
 use App\Models\Category;
 use App\Models\Inventory;
 use Gate;
+use App\Classes\Products;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,9 +26,9 @@ class InventoryController extends Controller
         abort_if(Gate::denies('inventory_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $inventories = Inventory::with(['category', 'media'])->get();
-
         $categories = Category::get();
 
+        
         return view('admin.inventories.index', compact('inventories', 'categories'));
     }
 
@@ -55,7 +56,10 @@ class InventoryController extends Controller
         if ($media = $request->input('ck-media', false)) {
             Media::whereIn('id', $media)->update(['model_id' => $inventory->id]);
         }
-
+        $ob = new Products();
+        $ob->setObjet($request->all());
+        $ob->setID($inventory->id);
+        $ob->store();
         return redirect()->route('admin.inventories.index');
     }
 
@@ -99,6 +103,14 @@ class InventoryController extends Controller
             }
         }
 
+
+        $ob = new Products();
+        $ob->setObjet($request->all());
+        $ob->setID($inventory->id);
+        $ob->update();
+        // dd($ob->getResponse());
+        // $ob->store();
+      
         return redirect()->route('admin.inventories.index');
     }
 
@@ -117,6 +129,10 @@ class InventoryController extends Controller
 
         $inventory->delete();
 
+        $ob = new Products();
+        $ob->setID($inventory->id);
+        $ob->delete();
+        
         return back();
     }
 

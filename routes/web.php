@@ -95,6 +95,27 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('modells', 'ModellController');
 
 
+     // Bank
+     Route::delete('banks/destroy', 'BankController@massDestroy')->name('banks.massDestroy');
+     Route::post('banks/media', 'BankController@storeMedia')->name('banks.storeMedia');
+     Route::post('banks/ckmedia', 'BankController@storeCKEditorImages')->name('banks.storeCKEditorImages');
+     Route::post('banks/parse-csv-import', 'BankController@parseCsvImport')->name('banks.parseCsvImport');
+     Route::post('banks/process-csv-import', 'BankController@processCsvImport')->name('banks.processCsvImport');
+     Route::resource('banks', 'BankController');
+ 
+     // Info
+     Route::delete('infos/destroy', 'InfoController@massDestroy')->name('infos.massDestroy');
+     Route::post('infos/parse-csv-import', 'InfoController@parseCsvImport')->name('infos.parseCsvImport');
+     Route::post('infos/process-csv-import', 'InfoController@processCsvImport')->name('infos.processCsvImport');
+     Route::resource('infos', 'InfoController');
+
+    // Bank Info
+    Route::delete('bank-infos/destroy', 'BankInfoController@massDestroy')->name('bank-infos.massDestroy');
+    Route::post('bank-infos/parse-csv-import', 'BankInfoController@parseCsvImport')->name('bank-infos.parseCsvImport');
+    Route::post('bank-infos/process-csv-import', 'BankInfoController@processCsvImport')->name('bank-infos.processCsvImport');
+    Route::resource('bank-infos', 'BankInfoController');
+
+
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
